@@ -9,6 +9,8 @@ export const SimpleSlideStyle = styled.div<SimpleSlideStyleProps>`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  cursor: default;
 `
 
 interface TextProps {
@@ -18,18 +20,19 @@ interface TextProps {
 
 export const TitleStyle = styled.h1<TextProps>`
   font-size: ${ ({ size }) =>
-          size === 'large' ? 72 :
-                  size === 'medium' ? 48 :
-                          size === 'small' ? 36 : 48
+          size === 'large' ? '52px' :
+                  size === 'medium' ? '42px' :
+                          size === 'small' ? '36px' : '42px'
   };
   color: ${ ({ color }) => color && 'white' };
+  margin-bottom: 10px;
 `
 
 export const TextStyle = styled.p<TextProps>`
   font-size: ${ ({ size }) =>
-          size === 'large' ? 48 :
-                  size === 'medium' ? 36 :
-                          size === 'small' ? 24 : 36
+          size === 'large' ? '36px' :
+                  size === 'medium' ? '28px' :
+                          size === 'small' ? '20px' : '28px'
   };
   color: ${ ({ color }) => color && 'white' };
 `

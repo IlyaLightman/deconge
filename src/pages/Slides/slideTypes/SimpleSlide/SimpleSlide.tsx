@@ -6,7 +6,7 @@ import {
 } from './SimpleSlide.style'
 
 interface SimpleSlideProps {
-    text: string
+    text?: string
     title?: string
     effect?: string
     size?: string
@@ -29,10 +29,10 @@ const SimpleSlide: React.FC<SimpleSlideProps> = (
                 color={ color }
             > { title }
             </TitleStyle> : {} }
-            <TextStyle
+            { text ? <TextStyle
                 size={ size }
                 color={ color }
-            > { text } </TextStyle>
+            > { text } </TextStyle> : {} }
         </SimpleSlideStyle>
     )
 }
