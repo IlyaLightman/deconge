@@ -28,11 +28,11 @@ const SimpleSlide: React.FC<SimpleSlideProps> = (
                 size={ size }
                 color={ color }
             > { title }
-            </TitleStyle> : {} }
+            </TitleStyle> : null }
             { text ? <TextStyle
                 size={ size }
                 color={ color }
-            > { text } </TextStyle> : {} }
+            > { text } </TextStyle> : null }
         </SimpleSlideStyle>
     )
 }

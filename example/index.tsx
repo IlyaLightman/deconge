@@ -9,6 +9,16 @@ const exampleSlides = [
         type: 'simple',
         content: 'Простая слайдовая страничка',
         title: 'Слайдик'
+    },
+    {
+        type: 'simple',
+        content: 'Ещё один большой простенький слайдик',
+        size: 'large'
+    },
+    {
+        type: 'simple',
+        title: 'Только тайтл, небольшой',
+        size: 'small',
     }
 ]
 
