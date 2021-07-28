@@ -9,11 +9,19 @@ interface FeedbackSlideProps {
     animation?: string
     color?: string
     button?: ButtonProps
+    onButton: () => void
 }
 
-const FeedbackSlide: React.FC<FeedbackSlideProps> = () => {
+const FeedbackSlide: React.FC<FeedbackSlideProps> = (
+    {
+        onButton
+    }
+) => {
     return <FeedbackSlideStyle>
-        <Button text='Ок' />
+        <Button
+            text='Ок'
+            onClick={ onButton }
+        />
     </FeedbackSlideStyle>
 }
 

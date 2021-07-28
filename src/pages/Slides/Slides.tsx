@@ -46,7 +46,6 @@ export const Slides: React.FC<SlidesProps> = (
     const slidesGenerator = () => {
         return [...slides.map(slide => {
             if (slide.type === 'simple') {
-                // setBtnPage([...btnPage, Number(slide.buttonPassing) || 0])
                 return <SimpleSlide
                     text={ slide.content }
                     title={ slide.title }
@@ -57,7 +56,6 @@ export const Slides: React.FC<SlidesProps> = (
                     key={ `s${ Math.floor(Math.random() * 10 ** 5) }` }
                 />
             } else if (slide.type === 'image') {
-                // setBtnPage([...btnPage, Number(slide.buttonPassing) || 0])
                 return <ImageSlide
                     link={ slide.content }
                     size={ slide.size }
@@ -68,6 +66,7 @@ export const Slides: React.FC<SlidesProps> = (
                 return <FeedbackSlide
                     text={ slide.content }
                     placeholder={ slide.placeholder }
+                    onButton={ () => setPage(page + 1) }
                     key={ `f${ Math.floor(Math.random() * 10 ** 5) }` }
                 />
             } else {

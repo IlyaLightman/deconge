@@ -3,6 +3,7 @@ import { ButtonStyle } from './Button.style'
 
 export interface ButtonProps {
     text: string
+    onClick: () => void
     color?: string
     background?: string
     hover?: string
@@ -10,10 +11,12 @@ export interface ButtonProps {
 
 export const Button: React.FC<ButtonProps> = (
     {
-        text
+        text, onClick
     }
 ) => {
-    return <ButtonStyle>
+    return <ButtonStyle
+        onClick={ onClick }
+    >
         { text }
     </ButtonStyle>
 }
