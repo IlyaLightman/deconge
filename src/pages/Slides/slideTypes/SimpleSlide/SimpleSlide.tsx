@@ -1,14 +1,40 @@
 import React from 'react'
-import { SimpleSlideStyle } from './SimpleSlide.style'
+import {
+    SimpleSlideStyle,
+    TextStyle,
+    TitleStyle
+} from './SimpleSlide.style'
 
 interface SimpleSlideProps {
-
+    text: string
+    title?: string
+    effect?: string
+    size?: string
+    color?: string
+    highlight?: string
 }
 
-const SimpleSlide: React.FC<SimpleSlideProps> = () => {
-    return <SimpleSlideStyle>
-
-    </SimpleSlideStyle>
+// Just Slide with some text
+const SimpleSlide: React.FC<SimpleSlideProps> = (
+    {
+        text, title,
+        size, // small, medium, large
+        color
+    }
+) => {
+    return (
+        <SimpleSlideStyle>
+            title ? <TitleStyle
+                size={ size }
+                color={ color }
+            > { title }
+            </TitleStyle>
+            <TextStyle
+                size={ size }
+                color={ color }
+            > { text } </TextStyle>
+        </SimpleSlideStyle>
+    )
 }
 
 export default SimpleSlide
