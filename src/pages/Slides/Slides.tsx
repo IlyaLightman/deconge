@@ -3,6 +3,7 @@ import { SlidesScreen } from './Slides.style'
 import { Redirect } from 'react-router-dom'
 
 import SimpleSlide from './slideTypes/SimpleSlide/SimpleSlide'
+import ImageSlide from './slideTypes/ImageSlide/ImageSlide'
 
 type Slide = {
     // simple, image, feedback, jsx (~free)
@@ -39,8 +40,14 @@ export const Slides: React.FC<SlidesProps> = (
                     size={ slide.size }
                     color={ slide.color }
                     highlight={ slide.highlight }
-                    animation={ animation }
+                    animation={ slide.animation || animation }
                     key={ `s${ Math.floor(Math.random() * 10 ** 5) }` }
+                />
+            else if (slide.type === 'image')
+                return <ImageSlide
+                    animation={ slide.animation || animation }
+                    link={ slide.content }
+                    size={ slide.size }
                 />
             else
                 return <SimpleSlide

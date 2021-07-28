@@ -27,6 +27,11 @@ const exampleSlides = [
         type: 'simple',
         title: 'Только тайтл, небольшой',
         size: 'small',
+    },
+    {
+        type: 'image',
+        content: 'https://www.webturizm.ru/storage/photos/estonia/estonia-15963.jpg',
+        size: 'medium'
     }
 ]
 
