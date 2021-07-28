@@ -8,7 +8,7 @@ const exampleSlides = [
     {
         type: 'simple',
         title: 'Слайдик',
-        content: 'Простая слайдовая страничка',
+        content: 'Простая слайдовая страничка'
     },
     {
         type: 'simple',
@@ -19,6 +19,11 @@ const exampleSlides = [
         highlight: 'black'
     },
     {
+        type: 'feedback',
+        text: 'Введите чёнить',
+        placeholder: 'Вот сюда вот'
+    },
+    {
         type: 'simple',
         content: 'Ещё один большой простенький слайдик',
         size: 'large'
@@ -26,7 +31,7 @@ const exampleSlides = [
     {
         type: 'simple',
         title: 'Только тайтл, небольшой',
-        size: 'small',
+        size: 'small'
     },
     {
         type: 'image',
@@ -38,10 +43,10 @@ const exampleSlides = [
 const App: React.FC = () => {
     return (
         <Slides
-            slides = { exampleSlides }
-            animation = 'fadein'
+            slides={ exampleSlides }
+            animation="fadein"
         />
     )
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App/>, document.getElementById('root'))
