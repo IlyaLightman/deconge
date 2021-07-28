@@ -4,9 +4,19 @@ import * as ReactDOM from 'react-dom'
 
 import { Slides } from '../src'
 
+const exampleSlides = [
+    {
+        type: 'simple',
+        content: 'Простая слайдовая страничка',
+        title: 'Слайдик'
+    }
+]
+
 const App: React.FC = () => {
     return (
-        <Slides />
+        <Slides
+            slides = { exampleSlides }
+        />
     )
 }
 

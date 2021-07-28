@@ -24,11 +24,11 @@ const SimpleSlide: React.FC<SimpleSlideProps> = (
 ) => {
     return (
         <SimpleSlideStyle>
-            title ? <TitleStyle
+            { title ? <TitleStyle
                 size={ size }
                 color={ color }
             > { title }
-            </TitleStyle>
+            </TitleStyle> : {} }
             <TextStyle
                 size={ size }
                 color={ color }

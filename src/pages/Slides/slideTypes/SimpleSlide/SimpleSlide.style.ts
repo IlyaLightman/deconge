@@ -8,6 +8,7 @@ export const SimpleSlideStyle = styled.div<SimpleSlideStyleProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 `
 
 interface TextProps {
