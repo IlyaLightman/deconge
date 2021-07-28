@@ -7,8 +7,16 @@ import { Slides } from '../src'
 const exampleSlides = [
     {
         type: 'simple',
+        title: 'Слайдик',
         content: 'Простая слайдовая страничка',
-        title: 'Слайдик'
+    },
+    {
+        type: 'simple',
+        title: 'Цветастый слайдик',
+        content: 'Вот такой вот он',
+        size: 'small',
+        color: 'cyan',
+        highlight: 'black'
     },
     {
         type: 'simple',
@@ -26,6 +34,7 @@ const App: React.FC = () => {
     return (
         <Slides
             slides = { exampleSlides }
+            animation = 'fadein'
         />
     )
 }

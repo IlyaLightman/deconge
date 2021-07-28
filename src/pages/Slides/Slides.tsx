@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { SlidesScreen } from './Slides.style'
-// import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import SimpleSlide from './slideTypes/SimpleSlide/SimpleSlide'
-import { Redirect } from 'react-router-dom'
 
 type Slide = {
     // simple, image, feedback, jsx (~free)
@@ -12,17 +11,21 @@ type Slide = {
     title?: string,
     animation?: string,
     color?: string,
-    size?: string
+    size?: string,
+    highlight?: string
 }
 
 interface SlidesProps {
     slides: Array<Slide>,
-    redirectAfter?: string
+    redirectAfter?: string,
+    animation?: string
 }
 
 export const Slides: React.FC<SlidesProps> = (
     {
-        slides, redirectAfter
+        slides,
+        redirectAfter,
+        animation
     }
 ) => {
     const [page, setPage] = useState(0)
@@ -35,6 +38,8 @@ export const Slides: React.FC<SlidesProps> = (
                     title={ slide.title }
                     size={ slide.size }
                     color={ slide.color }
+                    highlight={ slide.highlight }
+                    animation={ animation }
                     key={ `s${ Math.floor(Math.random() * 10 ** 5) }` }
                 />
             else
@@ -43,6 +48,8 @@ export const Slides: React.FC<SlidesProps> = (
                     title={ slide.title }
                     size={ slide.size }
                     color={ slide.color }
+                    highlight={ slide.highlight }
+                    animation={ animation }
                     key={ `s${ Math.floor(Math.random() * 10 ** 5) }` }
                 />
         }), <Redirect to={ `/${ redirectAfter }` }/>]
@@ -50,7 +57,6 @@ export const Slides: React.FC<SlidesProps> = (
 
     return <SlidesScreen
         onClick={ () => {
-            console.log(slidesGenerator())
             if (page < slides.length - 1 + (redirectAfter ? 1 : 0)) {
                 setPage(page + 1)
             }
