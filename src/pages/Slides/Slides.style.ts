@@ -13,5 +13,5 @@ export const SlidesScreen = styled.div<SlidesScreenProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: lightcyan;
+  // background: lightcyan;
 `

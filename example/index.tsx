@@ -45,7 +45,11 @@ const App: React.FC = () => {
     return (
         <Slides
             slides={ exampleSlides }
-            animation="fadein"
+            animation='fadein'
+            background={{
+                type: 'simple',
+                color: 'lightblue'
+            }}
         />
     )
 }

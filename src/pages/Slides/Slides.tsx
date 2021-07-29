@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { SlidesScreen } from './Slides.style'
 import { Redirect } from 'react-router-dom'
 
+import { Background, BackgroundProps }
+    from '../../utils/backgroundController/Background/Background'
+
 import SimpleSlide from './slideTypes/SimpleSlide/SimpleSlide'
 import ImageSlide from './slideTypes/ImageSlide/ImageSlide'
 import FeedbackSlide from './slideTypes/FeedbackSlide/FeedbackSlide'
+
 
 type Slide = {
     // simple, image, feedback, jsx (~free)
@@ -23,14 +27,16 @@ type Slide = {
 interface SlidesProps {
     slides: Array<Slide>,
     redirectAfter?: string,
-    animation?: string
+    animation?: string,
+    background: BackgroundProps
 }
 
 export const Slides: React.FC<SlidesProps> = (
     {
         slides,
         redirectAfter,
-        animation
+        animation,
+        background
     }
 ) => {
     const [page, setPage] = useState(0)
@@ -81,17 +87,22 @@ export const Slides: React.FC<SlidesProps> = (
         }), <Redirect to={ `/${ redirectAfter }` }/>]
     }
 
-    return <SlidesScreen
-        onClick={ () => {
-            if (!btnPage.includes(page) &&
-                (page < slides.length - 1 + (redirectAfter ? 1 : 0)))
-            {
-                setPage(page + 1)
-            }
-        } }
+    return <Background
+        type={ background.type || 'simple' }
+        color={ background.color || 'lightblue' }
     >
-        {
-            slidesGenerator()[page]
-        }
-    </SlidesScreen>
+        <SlidesScreen
+            onClick={ () => {
+                if (!btnPage.includes(page) &&
+                    (page < slides.length - 1 + (redirectAfter ? 1 : 0)))
+                {
+                    setPage(page + 1)
+                }
+            } }
+        >
+            {
+                slidesGenerator()[page]
+            }
+        </SlidesScreen>
+    </Background>
 }
