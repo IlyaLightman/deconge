@@ -91,6 +91,8 @@ export const Slides: React.FC<SlidesProps> = (
         type={ background.type || 'simple' }
         color={ background.color || 'lightblue' }
         vanta={ background.vanta }
+        colors={ background.colors }
+        time={ background.time }
     >
         <SlidesScreen
             onClick={ () => {

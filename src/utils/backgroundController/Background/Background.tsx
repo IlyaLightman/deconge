@@ -1,6 +1,7 @@
 import React from 'react'
 import { BackgroundStyle } from './Background.style'
 import { VantaPanel, VantaSettings } from '../backgrounds/VantaPanel/VantaPanel'
+import { AnimGradient } from '../backgrounds/AnimGradient/AnimGradient'
 
 // import VantaPanel from '../backgrounds/VantaPanel/VantaPanel'
 
@@ -9,7 +10,9 @@ export interface BackgroundProps {
     // simple, vanta, animgradinent
     type: string
     color: string,
+    colors?: string[]
     vanta?: VantaSettings
+    time?: string
 }
 
 export const Background: React.FC<BackgroundProps> = (
@@ -17,18 +20,27 @@ export const Background: React.FC<BackgroundProps> = (
         children,
         color,
         type,
-        vanta
+        colors,
+        vanta,
+        time
     }
 ) => {
     return <BackgroundStyle color={ color }>
         {
             type === 'simple' ? children :
-                <VantaPanel
-                    effect='fog'
-                    settings={ vanta as VantaSettings }
-                >
-                    { children }
-                </VantaPanel>
+                type === 'vanta' ?
+                    <VantaPanel
+                        effect="fog"
+                        settings={ vanta as VantaSettings }
+                    >
+                        { children }
+                    </VantaPanel> :
+                    <AnimGradient
+                        colors={ colors as string[] }
+                        time={ time }
+                    >
+                        { children }
+                    </AnimGradient>
         }
     </BackgroundStyle>
 }

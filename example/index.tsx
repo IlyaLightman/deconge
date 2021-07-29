@@ -47,9 +47,11 @@ const App: React.FC = () => {
             slides={ exampleSlides }
             animation='fadein'
             background={{
-                type: 'vanta',
+                type: 'animgradient',
                 color: 'lightblue',
-                vanta: vantaSettings
+                vanta: vantaSettings,
+                colors: ['#6371f6', '#e65bd8', '#3ef5e1'],
+                time: 30
             }}
         />
     )
