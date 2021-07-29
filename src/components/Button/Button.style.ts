@@ -12,7 +12,7 @@ export const ButtonStyle = styled.div<ButtonStyleProps>`
   align-items: center;
   border: 0;
   border-radius: 15px;
-  padding: 10px;
+  padding: 10px 15px 10px 15px;
   transition: 0.3s;
   background: ${({ background }) => 'white' || background};
   cursor: pointer;

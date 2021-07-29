@@ -20,7 +20,7 @@ const exampleSlides = [
     },
     {
         type: 'feedback',
-        text: 'Введите чёнить',
+        content: 'Введите чёнить',
         placeholder: 'Вот сюда вот'
     },
     {
