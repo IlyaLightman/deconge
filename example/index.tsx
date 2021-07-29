@@ -47,11 +47,26 @@ const App: React.FC = () => {
             slides={ exampleSlides }
             animation='fadein'
             background={{
-                type: 'simple',
-                color: 'lightblue'
+                type: 'vanta',
+                color: 'lightblue',
+                vanta: vantaSettings
             }}
         />
     )
+}
+
+const vantaSettings = {
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    highlightColor: 0xee7eff,
+    midtoneColor: 0xbf97ef,
+    lowlightColor: 0x5d5dfe,
+    baseColor: 0xe4efff,
+    blurFactor: 0.57,
+    speed: 2.20
 }
 
 ReactDOM.render(<App/>, document.getElementById('root'))

@@ -2,26 +2,61 @@ import React, { useState, useEffect, useRef } from 'react'
 import * as THREE from 'three'
 // @ts-ignore
 import NET from 'vanta/dist/vanta.net.min'
+// @ts-ignore
+import FOG from 'vanta/dist/vanta.fog.min'
 
-// Make sure window.THREE is defined, e.g. by including three.min.js in the document head using a <script> tag
+export interface VantaSettings {
+    minHeight?: number
+    minWidth?: number
+    highlightColor?: string
+    midtoneColor?: string
+    lowlightColor?: string
+    baseColor?: string
+    blurFactor?: string
+    speed?: string
+}
 
-const VantaPanel = (props: { children: React.ReactNode }) => {
+interface VantaPanelProps {
+    children: React.ReactNode
+    effect: string
+    settings: VantaSettings
+}
+
+export const VantaPanel: React.FC<VantaPanelProps> = (
+    {
+        children,
+        effect,
+        settings
+    }
+) => {
     const [vantaEffect, setVantaEffect] = useState(0 as any)
     const myRef = useRef(null)
     useEffect(() => {
+        console.log(settings)
         if (!vantaEffect) {
-            setVantaEffect(NET({
-                el: myRef.current,
-                THREE: THREE,
-                mouseControls: true,
-                touchControls: true,
-                gyroControls: false,
-                minHeight: 200.00,
-                minWidth: 200.00,
-                scale: 1.00,
-                scaleMobile: 1.00,
-                color: 0x174193
-            }))
+            const options = {
+                minHeight: settings.minHeight,
+                minWidth: settings.minWidth,
+                highlightColor: settings.highlightColor,
+                midtoneColor: settings.midtoneColor,
+                lowlightColor: settings.lowlightColor,
+                baseColor: settings.baseColor,
+                blurFactor: settings.blurFactor,
+                speed: settings.speed
+            }
+
+            if (effect === 'fog')
+                setVantaEffect(FOG({
+                    el: myRef.current,
+                    THREE: THREE,
+                    ...options
+                }))
+            else if (effect === 'net')
+                setVantaEffect(FOG({
+                    el: myRef.current,
+                    THREE: THREE,
+                    ...options
+                }))
         }
         return () => {
             if (vantaEffect) vantaEffect.destroy()
@@ -33,8 +68,6 @@ const VantaPanel = (props: { children: React.ReactNode }) => {
         width: '100%',
         height: '100%'
     }}>
-        {props.children}
+        { children }
     </div>
 }
-
-export default VantaPanel
