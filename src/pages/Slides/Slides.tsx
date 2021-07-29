@@ -16,7 +16,8 @@ type Slide = {
     size?: string,
     highlight?: string,
     placeholder?: string,
-    buttonPassing?: boolean
+    buttonPassing?: boolean,
+    onButton?: (text: string) => void
 }
 
 interface SlidesProps {
@@ -66,7 +67,12 @@ export const Slides: React.FC<SlidesProps> = (
                 return <FeedbackSlide
                     text={ slide.content }
                     placeholder={ slide.placeholder }
-                    onButton={ () => setPage(page + 1) }
+                    onButton={ (text: string) => {
+                        if (slide.onButton)
+                            slide.onButton(text)
+                        setPage(page + 1)
+                    } }
+                    animation={ animation }
                     key={ `f${ Math.floor(Math.random() * 10 ** 5) }` }
                 />
             } else {

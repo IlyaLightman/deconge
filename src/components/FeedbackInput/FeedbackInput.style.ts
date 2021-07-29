@@ -17,6 +17,10 @@ export const FeedbackInputStyle = styled.textarea<FeedbackInputStyleProps>`
   transition: 0.3s;
   background: ${({ background }) => background || 'white'};
   color: ${({ color }) => color || 'black'};
+
+  :focus {
+    outline: none;
+  }
   
   :hover {
     background: ${({ hover }) => hover || 'lightgray'};

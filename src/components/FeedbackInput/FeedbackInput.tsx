@@ -15,14 +15,12 @@ export const FeedbackInput: React.FC<FeedbackInputProps> = (
         color, background, hover
     }
 ) => {
-    // const [text, setText] = useState('')
-
     return <FeedbackInputStyle
         placeholder={ placeholder }
         color={ color }
         background={ background }
         hover={ hover }
-        onChange = { onChange }
+        onChange={ onChange }
     >
 
     </FeedbackInputStyle>

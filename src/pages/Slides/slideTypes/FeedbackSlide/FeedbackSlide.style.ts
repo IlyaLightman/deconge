@@ -1,7 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { fadein } from '../../SlidesAnimations'
 
 interface FeedbackSlideStyleProps {
-
+    animation?: string
 }
 
 interface TextProps {
@@ -16,6 +17,10 @@ export const FeedbackSlideStyle = styled.div<FeedbackSlideStyleProps>`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  animation: ${ ({ animation }) =>
+          animation === 'none' ? null :
+          animation === 'fadein' ? css`${fadein} 0.6s ease-out` : null };
 `
 
 export const TextStyle = styled.p<TextProps>`

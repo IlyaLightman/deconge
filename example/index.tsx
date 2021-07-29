@@ -21,7 +21,8 @@ const exampleSlides = [
     {
         type: 'feedback',
         content: 'Введите чёнить',
-        placeholder: 'Вот сюда вот'
+        placeholder: 'Вот сюда вот',
+        onButton: feedback => console.log('fb', feedback)
     },
     {
         type: 'simple',

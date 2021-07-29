@@ -14,20 +14,21 @@ interface FeedbackSlideProps {
     highlight?: string
     button?: ButtonProps
     input?: FeedbackInputProps
-    onButton: () => void
+    onButton: (input: string) => void
 }
 
 const FeedbackSlide: React.FC<FeedbackSlideProps> = (
     {
-        onButton,
+        onButton, animation,
         text, placeholder,
         size, color, highlight
     }
 ) => {
     const [input, setInput] = useState('')
-    console.log(input)
 
-    return <FeedbackSlideStyle>
+    return <FeedbackSlideStyle
+        animation={ animation }
+    >
         { text ? <TextStyle
             size={ size }
             color={ color }
@@ -41,7 +42,7 @@ const FeedbackSlide: React.FC<FeedbackSlideProps> = (
 
         <Button
             text='Ок'
-            onClick={ onButton }
+            onClick={ () => onButton(input) }
         />
     </FeedbackSlideStyle>
 }
