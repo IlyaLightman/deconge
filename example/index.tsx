@@ -2,7 +2,7 @@ import 'react-app-polyfill/ie11'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
-import { Slides } from '../src'
+import { Slides, Messenger } from '../src'
 
 const exampleSlides = [
     {
@@ -41,19 +41,28 @@ const exampleSlides = [
     }
 ]
 
+// background types: simple, vanta, animgradient
+
 const App: React.FC = () => {
     return (
-        <Slides
-            slides={ exampleSlides }
-            animation='fadein'
+        <Messenger
             background={{
                 type: 'animgradient',
-                color: 'lightblue',
-                vanta: vantaSettings,
                 colors: ['#6371f6', '#e65bd8', '#3ef5e1'],
                 time: 30
             }}
         />
+        // <Slides
+        //     slides={ exampleSlides }
+        //     animation='fadein'
+        //     background={{
+        //         type: 'vanta',
+        //         color: 'lightblue',
+        //         vanta: vantaSettings,
+        //         colors: ['#6371f6', '#e65bd8', '#3ef5e1'],
+        //         time: 30
+        //     }}
+        // />
     )
 }
 

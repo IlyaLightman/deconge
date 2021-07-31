@@ -9,7 +9,6 @@ import SimpleSlide from './slideTypes/SimpleSlide/SimpleSlide'
 import ImageSlide from './slideTypes/ImageSlide/ImageSlide'
 import FeedbackSlide from './slideTypes/FeedbackSlide/FeedbackSlide'
 
-
 type Slide = {
     // simple, image, feedback, jsx (~free)
     type: string,

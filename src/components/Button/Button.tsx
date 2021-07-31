@@ -7,15 +7,18 @@ export interface ButtonProps {
     color?: string
     background?: string
     hover?: string
+    style?: React.CSSProperties
 }
 
 export const Button: React.FC<ButtonProps> = (
     {
-        text, onClick
+        text, onClick,
+        style
     }
 ) => {
     return <ButtonStyle
         onClick={ onClick }
+        style = { style }
     >
         { text }
     </ButtonStyle>
