@@ -13,11 +13,15 @@ export interface ButtonProps {
 export const Button: React.FC<ButtonProps> = (
     {
         text, onClick,
+        color, background, hover,
         style
     }
 ) => {
     return <ButtonStyle
         onClick={ onClick }
+        color={ color }
+        background={ background }
+        hover={ hover }
         style = { style }
     >
         { text }

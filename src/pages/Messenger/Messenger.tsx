@@ -8,11 +8,11 @@ import { Button, ButtonProps } from '../../components/Button/Button'
 import { Background, BackgroundProps }
     from '../../utils/backgroundController/Background/Background'
 
-type response = {
-    text: string, msg: number
-}
 type msg = {
     text: string, responses: number[], collect: number
+}
+type response = {
+    text: string, msg: number
 }
 type collectItem = {
     title: string, text: string, img: string
@@ -32,7 +32,14 @@ export const Messenger: React.FC<MessengerProps> = (
         background
     }
 ) => {
-    const [collectedItems, setCollectedItems] = useState(0)
+    const [collectedItems, setCollectedItems] = useState([] as number[])
+    const [dialogue, setDialogue] = useState([0] as number[])
+
+    const dialogueRender = () => {
+        return dialogue.map((remark, ind) => {
+
+        })
+    }
 
     return <Background
         type={ background.type || 'simple' }
@@ -45,7 +52,7 @@ export const Messenger: React.FC<MessengerProps> = (
 
         >
             <MessengerMenu>
-                Collected { collectedItems } / 15
+                Collected { collectedItems.length } / 15
 
                 <Button
                     text="Go away"
@@ -61,8 +68,16 @@ export const Messenger: React.FC<MessengerProps> = (
                 hello
                 <Message
                     text="Hello, hello"
+                    isResponse={false}
                     onClick={ () => {
-                        setCollectedItems(collectedItems + 1)
+                        setCollectedItems([...collectedItems, 0])
+                    } }
+                />
+                <Message
+                    text="Hello, hello!!!!!!"
+                    isResponse={true}
+                    onClick={ () => {
+                        setCollectedItems([...collectedItems, 0])
                     } }
                 />
             </MessengerWorkspace>
