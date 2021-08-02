@@ -46,11 +46,26 @@ const exampleSlides = [
 const App: React.FC = () => {
     return (
         <Messenger
-            background={{
+            background={ {
                 type: 'animgradient',
                 colors: ['#6371f6', '#e65bd8', '#3ef5e1'],
                 time: 30
-            }}
+            } }
+            msgs={[
+                { text: 'Приветик', responses: [0, 1] },
+                { text: 'Как дела?', responses: [2] },
+                { text: 'Эмм....', responses: [4] },
+                { text: 'Что делаешь?', responses: [3] },
+                { text: 'Ну ладно', responses: [] }
+            ]}
+            responses={[
+                { text: 'Ну привет', msg: 1 },
+                { text: 'Здарова неудачник', msg: 2 },
+                { text: 'Круто!', msg: 3 },
+                { text: 'Глажу котика', msg: 4 },
+                { text: 'Чё эмкаешь', msg: 4 }
+            ]}
+            collection={[]}
         />
         // <Slides
         //     slides={ exampleSlides }

@@ -9,7 +9,7 @@ import { Background, BackgroundProps }
     from '../../utils/backgroundController/Background/Background'
 
 type msg = {
-    text: string, responses: number[], collect: number
+    text: string, responses?: number[], collect?: number
 }
 type response = {
     text: string, msg: number
@@ -62,8 +62,8 @@ export const Messenger: React.FC<MessengerProps> = (
         })
     }
 
-    const responsesRender: () => JSX.Element[] = () => {
-        return msgs[dialogue[-1]].responses.map(remark => {
+    const responsesRender: () => JSX.Element[] | undefined = () => {
+        return msgs[dialogue[dialogue.length - 1]].responses?.map(remark => {
             return <Message
                 text={ responses[remark].text }
                 isResponse={ true }
