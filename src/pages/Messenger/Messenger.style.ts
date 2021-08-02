@@ -37,8 +37,7 @@ export const MessengerMenu = styled.div<MessengerMenuProps>`
 
 export const MessengerWorkspace = styled.div<MessengerWorkspaceProps>`
   display: flex;
-  margin-top: 6%;
-  margin-left: 5%;
+  margin: 6% 0 100px 5%;
   width: 65%;
   align-items: start;
   flex-direction: column;

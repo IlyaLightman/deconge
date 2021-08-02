@@ -92,6 +92,13 @@ export const Messenger: React.FC<MessengerProps> = (
                     // @ts-ignore
                     collection[msgs[dialogue[dialogue.length - 1]].collect].text
                 }
+                onClick={ () => {
+                    if (!collectedItems.includes(msgs[dialogue[dialogue.length - 1]].collect as number))
+                        setCollectedItems(
+                            [...collectedItems, msgs[dialogue[dialogue.length - 1]].collect as number]
+                        )
+                    setDialogue([0] as number[])
+                } }
             /> : null
     }
 
@@ -119,21 +126,6 @@ export const Messenger: React.FC<MessengerProps> = (
                 />
             </MessengerMenu>
             <MessengerWorkspace>
-                hello
-                <Message
-                    text="Hello, hello"
-                    isResponse={ false }
-                    onClick={ () => {
-                        setCollectedItems([...collectedItems, 0])
-                    } }
-                />
-                <Message
-                    text="Hello, hello!!!!!!"
-                    isResponse={ true }
-                    onClick={ () => {
-                        setCollectedItems([...collectedItems, 0])
-                    } }
-                />
 
                 { dialogueRender() }
                 { responsesRender() }

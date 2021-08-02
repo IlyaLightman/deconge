@@ -40,7 +40,7 @@ export const MessageStyle = styled.div<MessageStyleProps>`
   };
 
   ${ ({ hoverAnimGradientColors }) => hoverAnimGradientColors ? css`
-    background: linear-gradient(270deg, ${ hoverAnimGradientColors.join(', ') });
+    background: linear-gradient(to right, ${ hoverAnimGradientColors.join(', ') });
     background-size: ${ hoverAnimGradientColors.length * 100 }% auto;
   ` : '' }
   p {

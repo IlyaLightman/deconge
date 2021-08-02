@@ -48,7 +48,7 @@ const App: React.FC = () => {
         <Messenger
             background={ {
                 type: 'animgradient',
-                colors: ['#6371f6', '#e65bd8', '#3ef5e1'],
+                colors: ['rgba(170,51,200,1)', 'rgba(83,79,244,1)', 'rgba(170,51,200,1)'],
                 time: 30
             } }
             message={{
