@@ -1,10 +1,12 @@
 import styled, { css } from 'styled-components'
+import { leftFadein, rightFadein } from '../componentsAnimations'
 
 interface MessageStyleProps {
     isResponse: boolean
     color?: string
     background?: string
     hover?: string
+    animation?: string
 }
 
 export const MessageStyle = styled.div<MessageStyleProps>`
@@ -19,6 +21,7 @@ export const MessageStyle = styled.div<MessageStyleProps>`
   background: ${ ({ background }) => 'white' || background };
   cursor: pointer;
   font-size: 24px;
+  margin-bottom: 24px;
 
   ${ ({ isResponse }) => isResponse ?
           css`
@@ -30,7 +33,13 @@ export const MessageStyle = styled.div<MessageStyleProps>`
             margin-right: auto;
           `
   }
-  
+
+  animation: ${ ({ animation }) =>
+          animation === 'none' ? null :
+          animation === 'leftFadein' ? css`${ leftFadein } 0.6s ease-out` :
+          animation === 'rightFadein' ? css`${ rightFadein } 0.6s ease-out` : null
+  };
+
   p {
     color: ${ ({ color }) => 'black' || color };
   }

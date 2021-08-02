@@ -48,6 +48,7 @@ export const Messenger: React.FC<MessengerProps> = (
                     color={ message?.color }
                     background={ message?.background }
                     hover={ message?.hover }
+                    animation={ 'rightFadein' }
                 />
             } else {
                 return <Message
@@ -71,6 +72,7 @@ export const Messenger: React.FC<MessengerProps> = (
                 color={ response?.color }
                 background={ response?.background }
                 hover={ response?.hover }
+                animation={ 'leftFadein' }
                 onClick={ () => {
                     setDialogue([
                         ...dialogue, remark, responses[remark].msg
