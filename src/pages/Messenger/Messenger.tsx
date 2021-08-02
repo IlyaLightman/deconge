@@ -3,6 +3,7 @@ import { MessengerScreen, MessengerMenu, MessengerWorkspace } from './Messenger.
 // import { Redirect } from 'react-router-dom'
 
 import { Message, MessageProps } from '../../components/Message/Message'
+import { CollectItem, CollectItemProps } from '../../components/CollectItem/CollectItem'
 import { Button, ButtonProps } from '../../components/Button/Button'
 
 import { Background, BackgroundProps }
@@ -26,12 +27,13 @@ interface MessengerProps {
     button?: ButtonProps
     message?: MessageProps
     response?: MessageProps
+    collectItem?: CollectItemProps
 }
 
 export const Messenger: React.FC<MessengerProps> = (
     {
         background,
-        msgs, responses, /*collection,*/
+        msgs, responses, collection,
         message, response
     }
 ) => {
@@ -82,6 +84,16 @@ export const Messenger: React.FC<MessengerProps> = (
         })
     }
 
+    const collectItemRender: () => JSX.Element | null = () => {
+        return msgs[dialogue[dialogue.length - 1]].collect !== undefined ?
+            <CollectItem
+                text={
+                    // @ts-ignore
+                    collection[msgs[dialogue[dialogue.length - 1]].collect].text
+                }
+            /> : null
+    }
+
     return <Background
         type={ background.type || 'simple' }
         color={ background.color || 'lightblue' }
@@ -124,6 +136,7 @@ export const Messenger: React.FC<MessengerProps> = (
 
                 { dialogueRender() }
                 { responsesRender() }
+                { collectItemRender() }
 
             </MessengerWorkspace>
         </MessengerScreen>

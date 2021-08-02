@@ -33,11 +33,11 @@ export const MessageStyle = styled.div<MessageStyleProps>`
             margin-right: auto;
           `
   }
-
+  
   animation: ${ ({ animation }) =>
           animation === 'none' ? null :
-          animation === 'leftFadein' ? css`${ leftFadein } 0.6s ease-out` :
-          animation === 'rightFadein' ? css`${ rightFadein } 0.6s ease-out` : null
+          animation === 'leftFadein' ? css`${ leftFadein } 0.4s ease-out` :
+          animation === 'rightFadein' ? css`${ rightFadein } 0.4s ease-out` : null
   };
 
   p {
