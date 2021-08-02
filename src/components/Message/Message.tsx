@@ -9,13 +9,14 @@ export interface MessageProps {
     background?: string
     hover?: string
     animation?: string
+    hoverAnimGradientColors?: string[]
 }
 
 export const Message: React.FC<MessageProps> = (
     {
         text, onClick, isResponse,
         color, background, hover,
-        animation
+        animation, hoverAnimGradientColors
     }
 ) => {
 
@@ -26,7 +27,8 @@ export const Message: React.FC<MessageProps> = (
         background={ background }
         hover={ hover }
         animation={ animation }
+        hoverAnimGradientColors={ hoverAnimGradientColors }
     >
-        { text }
+        <p>{ text }</p>
     </MessageStyle>
 }

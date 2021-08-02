@@ -21,12 +21,13 @@ export const MessengerScreen = styled.div<MessengerScreenProps>`
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   flex-direction: row;
 `
 
 export const MessengerMenu = styled.div<MessengerMenuProps>`
   display: flex;
+  margin-top: 6%;
   width: 15%;
   align-items: start;
   justify-content: space-between;
@@ -36,6 +37,7 @@ export const MessengerMenu = styled.div<MessengerMenuProps>`
 
 export const MessengerWorkspace = styled.div<MessengerWorkspaceProps>`
   display: flex;
+  margin-top: 6%;
   margin-left: 5%;
   width: 65%;
   align-items: start;

@@ -7,6 +7,7 @@ interface MessageStyleProps {
     background?: string
     hover?: string
     animation?: string
+    hoverAnimGradientColors?: string[]
 }
 
 export const MessageStyle = styled.div<MessageStyleProps>`
@@ -16,11 +17,10 @@ export const MessageStyle = styled.div<MessageStyleProps>`
   align-items: center;
   border: 0;
   border-radius: 15px;
-  padding: 10px 25px 10px 25px;
-  transition: 0.3s;
-  background: ${ ({ background }) => 'white' || background };
+  padding: 5px 35px 5px 35px;
+  transition: 0.7s;
+  background: ${ ({ background }) => background || 'white' };
   cursor: pointer;
-  font-size: 24px;
   margin-bottom: 24px;
 
   ${ ({ isResponse }) => isResponse ?
@@ -33,18 +33,26 @@ export const MessageStyle = styled.div<MessageStyleProps>`
             margin-right: auto;
           `
   }
-  
-  animation: ${ ({ animation }) =>
-          animation === 'none' ? null :
-          animation === 'leftFadein' ? css`${ leftFadein } 0.4s ease-out` :
-          animation === 'rightFadein' ? css`${ rightFadein } 0.4s ease-out` : null
+
+  ${ ({ animation }) =>
+          animation === 'leftFadein' ? css`animation: ${ leftFadein } 0.4s ease-out` :
+                  animation === 'rightFadein' ? css`animation: ${ rightFadein } 0.4s ease-out` : null
   };
 
+  ${ ({ hoverAnimGradientColors }) => hoverAnimGradientColors ? css`
+    background: linear-gradient(270deg, ${ hoverAnimGradientColors.join(', ') });
+    background-size: ${ hoverAnimGradientColors.length * 100 }% auto;
+  ` : '' }
   p {
     color: ${ ({ color }) => 'black' || color };
+    font-size: 20px;
   }
 
   :hover {
-    background: ${ ({ hover }) => hover };
+    ${ ({ hoverAnimGradientColors, hover }) => hoverAnimGradientColors ?
+            css`
+              background-position: right center;` :
+            css`
+              background: ${ hover };` }
   }
 `

@@ -74,6 +74,7 @@ export const Messenger: React.FC<MessengerProps> = (
                 color={ response?.color }
                 background={ response?.background }
                 hover={ response?.hover }
+                hoverAnimGradientColors={ response?.hoverAnimGradientColors }
                 animation={ 'leftFadein' }
                 onClick={ () => {
                     setDialogue([
