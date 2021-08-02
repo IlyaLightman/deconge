@@ -25,19 +25,58 @@ interface MessengerProps {
     background: BackgroundProps
     button?: ButtonProps
     message?: MessageProps
+    response?: MessageProps
 }
 
 export const Messenger: React.FC<MessengerProps> = (
     {
-        background
+        background,
+        msgs, responses, /*collection,*/
+        message, response
     }
 ) => {
     const [collectedItems, setCollectedItems] = useState([] as number[])
     const [dialogue, setDialogue] = useState([0] as number[])
 
-    const dialogueRender = () => {
-        return dialogue.map((remark, ind) => {
+    const dialogueRender: () => JSX.Element[] = () => {
+        return dialogue.map((remark, index) => {
+            if (index % 2 === 0) {
+                return <Message
+                    text={ msgs[remark].text }
+                    isResponse={ false }
+                    key={ `m${ index }` }
+                    color={ message?.color }
+                    background={ message?.background }
+                    hover={ message?.hover }
+                />
+            } else {
+                return <Message
+                    text={ responses[remark].text }
+                    isResponse={ true }
+                    key={ `r${ index }` }
+                    color={ message?.color }
+                    background={ message?.background }
+                    hover={ message?.hover }
+                />
+            }
+        })
+    }
 
+    const responsesRender: () => JSX.Element[] = () => {
+        return msgs[dialogue[-1]].responses.map(remark => {
+            return <Message
+                text={ responses[remark].text }
+                isResponse={ true }
+                key={ `s${ remark }` }
+                color={ response?.color }
+                background={ response?.background }
+                hover={ response?.hover }
+                onClick={ () => {
+                    setDialogue([
+                        ...dialogue, remark, responses[remark].msg
+                    ])
+                } }
+            />
         })
     }
 
@@ -68,18 +107,22 @@ export const Messenger: React.FC<MessengerProps> = (
                 hello
                 <Message
                     text="Hello, hello"
-                    isResponse={false}
+                    isResponse={ false }
                     onClick={ () => {
                         setCollectedItems([...collectedItems, 0])
                     } }
                 />
                 <Message
                     text="Hello, hello!!!!!!"
-                    isResponse={true}
+                    isResponse={ true }
                     onClick={ () => {
                         setCollectedItems([...collectedItems, 0])
                     } }
                 />
+
+                { dialogueRender() }
+                { responsesRender() }
+
             </MessengerWorkspace>
         </MessengerScreen>
     </Background>
