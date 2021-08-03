@@ -24,6 +24,6 @@ export const Button: React.FC<ButtonProps> = (
         hover={ hover }
         style = { style }
     >
-        { text }
+        <p> { text } </p>
     </ButtonStyle>
 }

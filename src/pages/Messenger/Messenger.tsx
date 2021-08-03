@@ -18,6 +18,9 @@ type response = {
 type collectItem = {
     title: string, text: string, img: string
 }
+type textsColors = {
+    collected?: string
+}
 
 interface MessengerProps {
     responses: response[]
@@ -28,13 +31,16 @@ interface MessengerProps {
     message?: MessageProps
     response?: MessageProps
     collectItem?: CollectItemProps
+    textsColors?: textsColors
+    resetButton?: ButtonProps
 }
 
 export const Messenger: React.FC<MessengerProps> = (
     {
         background,
         msgs, responses, collection,
-        message, response
+        message, response,
+        resetButton, textsColors
     }
 ) => {
     const [collectedItems, setCollectedItems] = useState([] as number[])
@@ -113,16 +119,22 @@ export const Messenger: React.FC<MessengerProps> = (
 
         >
             <MessengerMenu>
-                Collected { collectedItems.length } / 15
+                <p
+                    style={{ color: textsColors?.collected || 'white' }}
+                >Collected { collectedItems.length } / 15</p>
 
                 <Button
-                    text="Go away"
+                    text={ resetButton?.text || 'Обнулить' }
                     onClick={ () => {
+                        setCollectedItems([] as number[])
                     } }
                     style={ {
                         width: '100%',
                         padding: '10px 0 10px 0'
                     } }
+                    background={ resetButton?.background || 'rgba(206,103,232,1)' }
+                    hover={ resetButton?.hover || 'rgba(142,139,255,1)' }
+                    color={ resetButton?.color || 'white' }
                 />
             </MessengerMenu>
             <MessengerWorkspace>

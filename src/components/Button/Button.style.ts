@@ -14,15 +14,20 @@ export const ButtonStyle = styled.div<ButtonStyleProps>`
   border-radius: 15px;
   padding: 10px 15px 10px 15px;
   transition: 0.3s;
-  background: ${({ background }) => 'white' || background};
+  background: ${ ({ background }) => background || 'white' };
   cursor: pointer;
   font-size: 24px;
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
   
   p {
-    color: ${({ color }) => 'black' || color};
+    color: ${ ({ color }) => color || 'black' };
   }
   
   :hover {
-    background: ${({ hover }) => 'gray' || hover};
+    background: ${ ({ hover }) => hover || 'gray' };
   }
 `

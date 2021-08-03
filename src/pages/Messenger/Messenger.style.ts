@@ -23,23 +23,23 @@ export const MessengerScreen = styled.div<MessengerScreenProps>`
   justify-content: center;
   align-items: start;
   flex-direction: row;
+  overflow: hidden;
 `
 
 export const MessengerMenu = styled.div<MessengerMenuProps>`
   display: flex;
   margin-top: 6%;
-  width: 15%;
-  align-items: start;
-  justify-content: space-between;
+  width: 12%;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  border: 1px solid black;
+  font-size: 24px;
 `
 
 export const MessengerWorkspace = styled.div<MessengerWorkspaceProps>`
   display: flex;
-  margin: 6% 0 100px 5%;
+  margin: 6% 0 100px 8%;
   width: 65%;
   align-items: start;
   flex-direction: column;
-  border: 1px solid black;
 `
