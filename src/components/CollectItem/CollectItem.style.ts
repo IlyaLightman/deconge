@@ -23,5 +23,7 @@ export const CollectItemStyle = styled.div<CollectItemProps>`
                           animation === 'rightFadein' ? css`${ rightFadein } 0.4s ease-out` : null
   };
 
-
+  p {
+    font-size: 24px;
+  }
 `

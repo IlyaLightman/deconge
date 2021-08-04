@@ -18,7 +18,8 @@ export const CollectItem: React.FC<CollectItemProps> = (
         title, text, img,
         animation,
         background,
-        onClick
+        onClick,
+        button
     }
 ) => {
     return <CollectItemStyle
@@ -29,7 +30,10 @@ export const CollectItem: React.FC<CollectItemProps> = (
         { text? <p> { text } </p> : null }
         { img }
         <Button
-            text={'go'}
+            text={ button?.text || 'Go next' }
+            background={ button?.background || 'white' }
+            hover={ button?.hover || 'lightgray' }
+            color={ button?.color || 'black' }
             onClick={ onClick }
         />
     </CollectItemStyle>

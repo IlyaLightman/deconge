@@ -61,11 +61,6 @@ const App: React.FC = () => {
             } }
             collectItem={{
                 background: 'rgb(159, 127, 245)',
-                button: {
-                    text: 'За следующей',
-                    background: 'rgba(206,103,232,1)',
-                    hover: 'rgba(142,139,255,1)'
-                }
             }}
             resetButton={{
                 background: 'rgba(206,103,232,1)',
@@ -76,6 +71,12 @@ const App: React.FC = () => {
                 background: 'rgb(123,194,51)',
                 hover: 'rgb(62,170,220)',
                 color: 'white'
+            }}
+            collectItemButton={{
+                background: '#f3c9ff',
+                hover: '#d884ee',
+                color: 'black',
+                text: 'За следующей'
             }}
             msgs={ [
                 { text: 'Ну привет, добро пожаловать в великолепный мессенджер.... привет!', responses: [0, 1] },

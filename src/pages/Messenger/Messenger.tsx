@@ -28,7 +28,7 @@ interface MessengerProps {
     collection: collectItem[]
     background: BackgroundProps
     collectedTitle: string
-    button?: ButtonProps
+    collectItemButton?: ButtonProps
     resetButton?: ButtonProps
     nextButton?: ButtonProps
     message?: MessageProps
@@ -44,8 +44,9 @@ export const Messenger: React.FC<MessengerProps> = (
         msgs, responses, collection,
         message, response,
         resetButton, nextButton,
-        textsColors,
+        collectItemButton,
         collectedTitle, collectItem,
+        textsColors,
         redirectAfter
     }
 ) => {
@@ -113,6 +114,7 @@ export const Messenger: React.FC<MessengerProps> = (
                     setDialogue([0] as number[])
                 } }
                 background={ collectItem?.background || 'white' }
+                button={ collectItemButton }
             /> : null
     }
 
