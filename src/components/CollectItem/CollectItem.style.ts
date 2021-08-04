@@ -11,7 +11,7 @@ export const CollectItemStyle = styled.div<CollectItemProps>`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 25px;
+  padding: 15px 40px;
   margin: 25px auto 25px auto;
   border-radius: 10px;
 

@@ -25,8 +25,8 @@ export const CollectItem: React.FC<CollectItemProps> = (
         animation={ animation }
         background={ background }
     >
-        { title }
-        { text }
+        { title ? <h3> { title } </h3> : null }
+        { text? <p> { text } </p> : null }
         { img }
         <Button
             text={'go'}

@@ -5,7 +5,7 @@ interface MessengerScreenProps {
 }
 
 interface MessengerMenuProps {
-
+    collectedColor?: string
 }
 
 interface MessengerWorkspaceProps {
@@ -16,7 +16,7 @@ export const MessengerScreen = styled.div<MessengerScreenProps>`
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100.5vh;
   margin: 0;
   padding: 0;
   display: flex;
@@ -29,11 +29,16 @@ export const MessengerScreen = styled.div<MessengerScreenProps>`
 export const MessengerMenu = styled.div<MessengerMenuProps>`
   display: flex;
   margin-top: 6%;
-  width: 12%;
+  width: 14%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   font-size: 24px;
+  
+  p {
+    color: ${({ collectedColor }) => collectedColor || 'white' };
+    text-align: center;
+  }
 `
 
 export const MessengerWorkspace = styled.div<MessengerWorkspaceProps>`

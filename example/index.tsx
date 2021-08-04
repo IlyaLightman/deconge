@@ -48,31 +48,59 @@ const App: React.FC = () => {
         <Messenger
             background={ {
                 type: 'animgradient',
-                colors: ['rgba(170,51,200,1)', 'rgba(83,79,244,1)', 'rgba(170,51,200,1)'],
+                // colors: ['rgba(170,51,200,1)', 'rgba(83,79,244,1)', 'rgba(170,51,200,1)'],
+                colors: ['rgba(83,79,244,1)', 'rgba(170,51,200,1)', 'rgba(83,79,244,1)'],
                 time: 30
             } }
-            message={{
+            collectedTitle={ 'Собрано штучек и штук:' }
+            message={ {
                 background: 'rgba(138,182,255,1)'
-            }}
-            response={{
+            } }
+            response={ {
                 hoverAnimGradientColors: ['rgba(255,171,216,1)', 'rgba(255,118,231,1)', 'rgba(242,111,241,1)', 'rgba(240,63,255,1)']
+            } }
+            collectItem={{
+                background: 'rgb(159, 127, 245)',
+                button: {
+                    text: 'За следующей',
+                    background: 'rgba(206,103,232,1)',
+                    hover: 'rgba(142,139,255,1)'
+                }
+            }}
+            resetButton={{
+                background: 'rgba(206,103,232,1)',
+                hover: 'rgba(142,139,255,1)',
+                color: 'white'
+            }}
+            nextButton={{
+                background: 'rgb(123,194,51)',
+                hover: 'rgb(62,170,220)',
+                color: 'white'
             }}
             msgs={ [
                 { text: 'Ну привет, добро пожаловать в великолепный мессенджер.... привет!', responses: [0, 1] },
-                { text: 'Задам один важный вопрос, вопрос, без которого дальейшая беседа просто невозможно. Как дела?', responses: [2] },
-                { text: 'Эмм.... ты кадеися немного обнаглел, наглец, что ты себе позволяешь?', responses: [4] },
-                { text: 'Задам следующий важный вопрос. Наиважнейший в сегодняшней беседе. Что делаешь?', responses: [3] },
-                { text: 'Ну ладно', responses: [], collect: 0 }
+                {
+                    text: 'Задам один важный вопрос, вопрос, без которого дальейшая беседа просто невозможно. Как дела?',
+                    responses: [2]
+                },
+                { text: 'Эмм.... ты кажется немного обнаглел, наглец, что ты себе позволяешь?', responses: [4] },
+                {
+                    text: 'Задам следующий важный вопрос. Наиважнейший в сегодняшней беседе. Что делаешь?',
+                    responses: [3]
+                },
+                { text: 'Ну ладно', responses: [], collect: 0 },
+                { text: 'Всё, я обижен', responses: [], collect: 1 }
             ] }
             responses={ [
                 { text: 'Ну приветик', msg: 1 },
                 { text: 'Здарова неудачник', msg: 2 },
                 { text: 'Круто!', msg: 3 },
                 { text: 'Глажу котика', msg: 4 },
-                { text: 'Чё эмкаешь', msg: 4 }
+                { text: 'Чё эмкаешь', msg: 5 }
             ] }
             collection={ [
-                { text: 'hi i am collection' }
+                { text: 'Приветливость в диалоге!' },
+                { text: 'Ужасная неприветливость....' }
             ] }
         />
         // <Slides

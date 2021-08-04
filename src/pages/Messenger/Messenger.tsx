@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { MessengerScreen, MessengerMenu, MessengerWorkspace } from './Messenger.style'
-// import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import { Message, MessageProps } from '../../components/Message/Message'
 import { CollectItem, CollectItemProps } from '../../components/CollectItem/CollectItem'
@@ -27,12 +27,15 @@ interface MessengerProps {
     msgs: msg[]
     collection: collectItem[]
     background: BackgroundProps
+    collectedTitle: string
     button?: ButtonProps
+    resetButton?: ButtonProps
+    nextButton?: ButtonProps
     message?: MessageProps
     response?: MessageProps
     collectItem?: CollectItemProps
     textsColors?: textsColors
-    resetButton?: ButtonProps
+    redirectAfter?: string
 }
 
 export const Messenger: React.FC<MessengerProps> = (
@@ -40,11 +43,15 @@ export const Messenger: React.FC<MessengerProps> = (
         background,
         msgs, responses, collection,
         message, response,
-        resetButton, textsColors
+        resetButton, nextButton,
+        textsColors,
+        collectedTitle, collectItem,
+        redirectAfter
     }
 ) => {
     const [collectedItems, setCollectedItems] = useState([] as number[])
     const [dialogue, setDialogue] = useState([0] as number[])
+    const [redirect, setRedirect] = useState(false)
 
     const dialogueRender: () => JSX.Element[] = () => {
         return dialogue.map((remark, index) => {
@@ -105,6 +112,7 @@ export const Messenger: React.FC<MessengerProps> = (
                         )
                     setDialogue([0] as number[])
                 } }
+                background={ collectItem?.background || 'white' }
             /> : null
     }
 
@@ -115,13 +123,11 @@ export const Messenger: React.FC<MessengerProps> = (
         colors={ background.colors }
         time={ background.time }
     >
-        <MessengerScreen
-
-        >
-            <MessengerMenu>
-                <p
-                    style={{ color: textsColors?.collected || 'white' }}
-                >Collected { collectedItems.length } / 15</p>
+        { !redirect ? <MessengerScreen>
+            <MessengerMenu
+                collectedColor={ textsColors?.collected || 'white' }
+            >
+                <p> { collectedTitle } { collectedItems.length } / { collection.length } </p>
 
                 <Button
                     text={ resetButton?.text || 'Обнулить' }
@@ -132,10 +138,29 @@ export const Messenger: React.FC<MessengerProps> = (
                         width: '100%',
                         padding: '10px 0 10px 0'
                     } }
-                    background={ resetButton?.background || 'rgba(206,103,232,1)' }
-                    hover={ resetButton?.hover || 'rgba(142,139,255,1)' }
-                    color={ resetButton?.color || 'white' }
+                    background={ resetButton?.background || 'white' }
+                    hover={ resetButton?.hover || 'lightgray' }
+                    color={ resetButton?.color || 'black' }
                 />
+
+                {
+                    collection.length === collectedItems.length ?
+                        <Button
+                            text={'Далее'}
+                            onClick={() => {
+                                if (redirectAfter)
+                                    setRedirect(true)
+                            }}
+                            style={ {
+                                width: '100%',
+                                padding: '10px 0 10px 0',
+                                marginTop: '18px'
+                            } }
+                            background={ nextButton?.background || 'white' }
+                            hover={ nextButton?.hover || 'lightgray' }
+                            color={ nextButton?.color || 'black' }
+                        /> : null
+                }
             </MessengerMenu>
             <MessengerWorkspace>
 
@@ -144,6 +169,6 @@ export const Messenger: React.FC<MessengerProps> = (
                 { collectItemRender() }
 
             </MessengerWorkspace>
-        </MessengerScreen>
+        </MessengerScreen> : <Redirect to={ redirectAfter as string } /> }
     </Background>
 }
