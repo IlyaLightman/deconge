@@ -62,6 +62,7 @@ In the slide object you may pass the next properties:
 - highlight - The color of text highlighting
 - size - The size of the slide content ('small', 'medium', 'large')
 - buttonPassing - Does the slide have to have a button to switch (boolean)
+- button - Style of the button
 
 And the properties of the Slide component:
 - slides - Array with the objects of slides
@@ -136,6 +137,7 @@ Little information about it:
 - *redirectAfter* - like in Slides, link to the next page
 
 Here is what it looks like:
+
 ![Messenger](https://i.ibb.co/TcMsYK8/image.png)
 
 ---

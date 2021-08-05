@@ -21,7 +21,8 @@ const FeedbackSlide: React.FC<FeedbackSlideProps> = (
     {
         onButton, animation,
         text, placeholder,
-        size, color, highlight
+        size, color, highlight,
+        button
     }
 ) => {
     const [input, setInput] = useState('')
@@ -41,8 +42,11 @@ const FeedbackSlide: React.FC<FeedbackSlideProps> = (
         />
 
         <Button
-            text='Ок'
+            text={ button?.text || 'Ок' }
             onClick={ () => onButton(input) }
+            background={ button?.background || 'white' }
+            hover={ button?.hover || 'lightgray' }
+            color={ button?.color || 'black' }
         />
     </FeedbackSlideStyle>
 }
