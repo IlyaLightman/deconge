@@ -6,10 +6,10 @@ import { AnimGradient } from '../backgrounds/AnimGradient/AnimGradient'
 // import VantaPanel from '../backgrounds/VantaPanel/VantaPanel'
 
 export interface BackgroundProps {
-    children: React.ReactNode
+    children?: React.ReactNode
     // simple, vanta, animgradinent
     type: string
-    color: string,
+    color?: string,
     colors?: string[]
     vanta?: VantaSettings
     time?: string
