@@ -5,6 +5,12 @@ Deconge is a **React component library** created for easy developing of the inte
 
 It contains a number of the pages you can use in your greeting card. Every page is the prepared component with the determined behaviour, and it has to have the individual link, because these pages are independent.
 
+## Install
+
+You can install Deconge using npm:
+
+	npm i deconge
+	
 ---
 
 # Pages
