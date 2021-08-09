@@ -7,9 +7,9 @@ It contains a number of the pages you can use in your greeting card. Every page 
 
 ## Install
 
-You can install Deconge (and things he requires) using npm:
+You can install Deconge (and things it requires) using npm:
 
-	npm i deconge styled-components react-router-dom three vanta
+	npm i deconge styled-components
 	
 ## Using
 
