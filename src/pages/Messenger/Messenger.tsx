@@ -16,7 +16,7 @@ type response = {
     text: string, msg: number
 }
 type collectItem = {
-    title: string, text: string, img: string
+    title?: string, text?: string, img?: string
 }
 type textsColors = {
     collected?: string
