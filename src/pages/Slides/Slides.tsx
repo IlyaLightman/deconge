@@ -23,10 +23,18 @@ type Slide = {
     onButton?: (text: string) => void
 }
 
+type defaultSlideProps = {
+    animation?: string,
+    color?: string,
+    size?: string,
+    highlight?: string
+}
+
 interface SlidesProps {
     slides: Array<Slide>,
     redirectAfter?: string,
     animation?: string,
+    defaultSlide?: defaultSlideProps
     background: BackgroundProps
 }
 
@@ -35,7 +43,8 @@ export const Slides: React.FC<SlidesProps> = (
         slides,
         redirectAfter,
         animation,
-        background
+        background,
+        defaultSlide
     }
 ) => {
     const [page, setPage] = useState(0)
@@ -55,17 +64,17 @@ export const Slides: React.FC<SlidesProps> = (
                 return <SimpleSlide
                     text={ slide.content }
                     title={ slide.title }
-                    size={ slide.size }
-                    color={ slide.color }
-                    highlight={ slide.highlight }
-                    animation={ slide.animation || animation }
+                    size={ slide.size || defaultSlide?.size }
+                    color={ slide.color || defaultSlide?.color }
+                    highlight={ slide.highlight || defaultSlide?.highlight }
+                    animation={ slide.animation || animation || defaultSlide?.animation }
                     key={ `s${ Math.floor(Math.random() * 10 ** 5) }` }
                 />
             } else if (slide.type === 'image') {
                 return <ImageSlide
                     link={ slide.content }
                     size={ slide.size }
-                    animation={ slide.animation || animation }
+                    animation={ slide.animation || animation || defaultSlide?.animation }
                     key={ `i${ Math.floor(Math.random() * 10 ** 5) }` }
                 />
             } else if (slide.type === 'feedback') {

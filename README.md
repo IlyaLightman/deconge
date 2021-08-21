@@ -79,6 +79,7 @@ And the properties of the Slide component:
 - redirectAfter - link to the next page
 - animation - default animation for slides ('fadein' and others)
 - background - Background settings
+- defaultSlide - default slide props (animation, size, color, highlight)
 
 ## Messenger
 Wonderful page. It is messenger with the prepared messages you can send, and so, you have to collect all dialogue branches by sending and reading messages.
