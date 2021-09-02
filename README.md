@@ -13,8 +13,9 @@ You can install Deconge (and things it requires) using npm:
 	
 ## Using
 
+In addition to the example in *example* folder, there is more complete:
+https://github.com/IlyaLightman/deconge-example
 
-	
 ---
 
 # Pages
