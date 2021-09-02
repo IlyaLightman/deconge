@@ -3,7 +3,7 @@ import { MessageStyle } from './Message.style'
 
 export interface MessageProps {
     text: string
-    isResponse: boolean
+    isResponse?: boolean
     onClick?: () => void
     color?: string
     background?: string

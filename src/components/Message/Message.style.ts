@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { leftFadein, rightFadein } from '../componentsAnimations'
 
 interface MessageStyleProps {
-    isResponse: boolean
+    isResponse?: boolean
     color?: string
     background?: string
     hover?: string

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-interface ButtonStyleProps {
+export interface ButtonStyleProps {
     color?: string
     background?: string
     hover?: string

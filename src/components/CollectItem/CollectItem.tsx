@@ -1,16 +1,17 @@
 import React from 'react'
 import { CollectItemStyle } from './CollectItem.style'
 
-import { Button, ButtonProps } from '../Button/Button'
+import { Button, ButtonStyleProps } from '../Button/Button'
 
 export interface CollectItemProps {
-    onClick: () => void
+    onClick?: () => void
     title?: string
     text?: string
     img?: string
     animation?: string
     background?: string
-    button?: ButtonProps
+    buttonText?: string
+    buttonStyle?: ButtonStyleProps
 }
 
 export const CollectItem: React.FC<CollectItemProps> = (
@@ -19,7 +20,7 @@ export const CollectItem: React.FC<CollectItemProps> = (
         animation,
         background,
         onClick,
-        button
+        buttonText, buttonStyle
     }
 ) => {
     return <CollectItemStyle
@@ -30,11 +31,11 @@ export const CollectItem: React.FC<CollectItemProps> = (
         { text? <p> { text } </p> : null }
         { img }
         <Button
-            text={ button?.text || 'Go next' }
-            background={ button?.background || 'white' }
-            hover={ button?.hover || 'lightgray' }
-            color={ button?.color || 'black' }
-            onClick={ onClick }
+            text={ buttonText || 'Go next' }
+            background={ buttonStyle?.background || 'white' }
+            hover={ buttonStyle?.hover || 'lightgray' }
+            color={ buttonStyle?.color || 'black' }
+            onClick={ onClick || (() => { throw new Error }) }
         />
     </CollectItemStyle>
 }

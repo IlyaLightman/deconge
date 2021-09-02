@@ -1,5 +1,7 @@
 import React from 'react'
-import { ButtonStyle } from './Button.style'
+import { ButtonStyle, ButtonStyleProps } from './Button.style'
+
+export { ButtonStyleProps }
 
 export interface ButtonProps {
     text: string

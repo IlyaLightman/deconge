@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 
 import { Message, MessageProps } from '../../components/Message/Message'
 import { CollectItem, CollectItemProps } from '../../components/CollectItem/CollectItem'
-import { Button, ButtonProps } from '../../components/Button/Button'
+import { Button, ButtonStyleProps } from '../../components/Button/Button'
 
 import { Background, BackgroundProps }
     from '../../utils/backgroundController/Background/Background'
@@ -27,10 +27,13 @@ interface MessengerProps {
     msgs: msg[]
     collection: collectItem[]
     background: BackgroundProps
-    collectedTitle: string
-    collectItemButton?: ButtonProps
-    resetButton?: ButtonProps
-    nextButton?: ButtonProps
+    collectedTitle?: string
+    collectItemButton?: ButtonStyleProps
+    collectItemButtonText?: string
+    resetButton?: ButtonStyleProps
+    resetButtonText?: string
+    nextButton?: ButtonStyleProps
+    nextButtonText?: string
     message?: MessageProps
     response?: MessageProps
     collectItem?: CollectItemProps
@@ -44,7 +47,8 @@ export const Messenger: React.FC<MessengerProps> = (
         msgs, responses, collection,
         message, response,
         resetButton, nextButton,
-        collectItemButton,
+        resetButtonText,
+        collectItemButton, collectItemButtonText,
         collectedTitle, collectItem,
         textsColors,
         redirectAfter
@@ -114,7 +118,8 @@ export const Messenger: React.FC<MessengerProps> = (
                     setDialogue([0] as number[])
                 } }
                 background={ collectItem?.background || 'white' }
-                button={ collectItemButton }
+                buttonText={ collectItemButtonText }
+                buttonStyle={ collectItemButton }
             /> : null
     }
 
@@ -132,7 +137,7 @@ export const Messenger: React.FC<MessengerProps> = (
                 <p> { collectedTitle } { collectedItems.length } / { collection.length } </p>
 
                 <Button
-                    text={ resetButton?.text || 'Обнулить' }
+                    text={ resetButtonText || 'Обнулить' }
                     onClick={ () => {
                         setCollectedItems([] as number[])
                     } }
