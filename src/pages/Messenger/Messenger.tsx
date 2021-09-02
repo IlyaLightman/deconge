@@ -47,7 +47,7 @@ export const Messenger: React.FC<MessengerProps> = (
         msgs, responses, collection,
         message, response,
         resetButton, nextButton,
-        resetButtonText,
+        resetButtonText, nextButtonText,
         collectItemButton, collectItemButtonText,
         collectedTitle, collectItem,
         textsColors,
@@ -137,7 +137,7 @@ export const Messenger: React.FC<MessengerProps> = (
                 <p> { collectedTitle } { collectedItems.length } / { collection.length } </p>
 
                 <Button
-                    text={ resetButtonText || 'Обнулить' }
+                    text={ resetButtonText || 'Reset' }
                     onClick={ () => {
                         setCollectedItems([] as number[])
                     } }
@@ -153,7 +153,7 @@ export const Messenger: React.FC<MessengerProps> = (
                 {
                     collection.length === collectedItems.length ?
                         <Button
-                            text={'Далее'}
+                            text={ nextButtonText || 'Done' }
                             onClick={() => {
                                 if (redirectAfter)
                                     setRedirect(true)
