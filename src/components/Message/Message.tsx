@@ -1,5 +1,7 @@
 import React from 'react'
-import { MessageStyle } from './Message.style'
+import { MessageStyle, MessageStyleProps } from './Message.style'
+
+export { MessageStyleProps }
 
 export interface MessageProps {
     text: string

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { MessengerScreen, MessengerMenu, MessengerWorkspace } from './Messenger.style'
 import { Redirect } from 'react-router-dom'
 
-import { Message, MessageProps } from '../../components/Message/Message'
+import { Message, MessageStyleProps } from '../../components/Message/Message'
 import { CollectItem, CollectItemProps } from '../../components/CollectItem/CollectItem'
 import { Button, ButtonStyleProps } from '../../components/Button/Button'
 
@@ -34,8 +34,8 @@ interface MessengerProps {
     resetButtonText?: string
     nextButton?: ButtonStyleProps
     nextButtonText?: string
-    message?: MessageProps
-    response?: MessageProps
+    message?: MessageStyleProps
+    response?: MessageStyleProps
     collectItem?: CollectItemProps
     textsColors?: textsColors
     redirectAfter?: string

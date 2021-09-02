@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { leftFadein, rightFadein } from '../componentsAnimations'
 
-interface MessageStyleProps {
+export interface MessageStyleProps {
     isResponse?: boolean
     color?: string
     background?: string
