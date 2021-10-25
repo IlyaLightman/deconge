@@ -1,7 +1,7 @@
 import React from 'react'
 import './Loader.css'
 
-const Loader = () => <div className="lds-ring">
+const Loader: React.FC = () => <div className="lds-ring">
     <div/>
     <div/>
     <div/>

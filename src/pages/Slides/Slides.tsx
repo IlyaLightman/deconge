@@ -37,6 +37,7 @@ interface SlidesProps {
     redirectAfter?: string,
     animation?: string,
     defaultSlide?: defaultSlideProps
+    customLoader?: React.FC
     background: BackgroundProps
 }
 
@@ -46,7 +47,8 @@ export const Slides: React.FC<SlidesProps> = (
         redirectAfter,
         animation,
         background,
-        defaultSlide
+        defaultSlide,
+        customLoader
     }
 ) => {
     const [page, setPage] = useState(0)
@@ -123,7 +125,7 @@ export const Slides: React.FC<SlidesProps> = (
             } }
         >
             {
-                loading ? <Loader /> : slidesGenerator()[page]
+                loading ? customLoader ? customLoader : <Loader /> : slidesGenerator()[page]
             }
         </SlidesScreen>
     </Background>
