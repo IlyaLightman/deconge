@@ -9,6 +9,8 @@ import SimpleSlide from './slideTypes/SimpleSlide/SimpleSlide'
 import ImageSlide from './slideTypes/ImageSlide/ImageSlide'
 import FeedbackSlide from './slideTypes/FeedbackSlide/FeedbackSlide'
 
+import Loader from '../../components/utility/Loader/Loader'
+
 type Slide = {
     // simple, image, feedback, jsx (~free)
     type: string,
@@ -121,7 +123,7 @@ export const Slides: React.FC<SlidesProps> = (
             } }
         >
             {
-                loading ? 'load' : slidesGenerator()[page]
+                loading ? <Loader /> : slidesGenerator()[page]
             }
         </SlidesScreen>
     </Background>
