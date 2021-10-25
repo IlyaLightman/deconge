@@ -67,7 +67,8 @@ In the slide object you may pass the next properties:
 - title - Title of the slide, if type supports it
 - content - Main content of the slide, like text or link to an image
 - placeholder - Placeholder text in the Feedback slide
-- onButton - Additional action in the Feedback slide (sending answer to the server, for example)
+- onButton - Additional action in the Feedback slide (sending answer to the server, for example).
+  Now it has to be a promise, and while the request is being processed, the loader is shown
 - animation - Animation of the slide occurrence ('fadein' and others)
 - color - The color of the text
 - highlight - The color of text highlighting
@@ -81,9 +82,11 @@ And the properties of the Slide component:
 - animation - default animation for slides ('fadein' and others)
 - background - Background settings
 - defaultSlide - default slide props (animation, size, color, highlight)
+- customLoader - you are able to pass your own React component like loader
 
 ## Messenger
-Wonderful page. It is messenger with the prepared messages you can send, and so, you have to collect all dialogue branches by sending and reading messages.
+Wonderful page. It is messenger with the prepared messages you can send, and so,
+you have to collect all dialogue branches by sending and reading messages.
 
 Another simple example:
 
