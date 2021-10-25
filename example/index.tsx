@@ -23,7 +23,11 @@ const exampleSlides = [
         type: 'feedback',
         content: 'Введите чёнить',
         placeholder: 'Вот сюда вот',
-        onButton: feedback => console.log('fb', feedback)
+        onButton: (
+            () => new Promise(resolve => {
+                setTimeout(() => resolve(1500), 1500)
+            })
+        )
     },
     {
         type: 'simple',
