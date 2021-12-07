@@ -17,6 +17,7 @@ type Slide = {
     content?: string,
     title?: string,
     animation?: string,
+    effect?: string,
     color?: string,
     size?: string,
     highlight?: string,
@@ -27,6 +28,7 @@ type Slide = {
 
 type defaultSlideProps = {
     animation?: string,
+    effect?: string,
     color?: string,
     size?: string,
     highlight?: string
@@ -73,6 +75,7 @@ export const Slides: React.FC<SlidesProps> = (
                     color={ slide.color || defaultSlide?.color }
                     highlight={ slide.highlight || defaultSlide?.highlight }
                     animation={ slide.animation || animation || defaultSlide?.animation }
+                    effect={ slide.effect || defaultSlide?.effect }
                     key={ `s${ Math.floor(Math.random() * 10 ** 5) }` }
                 />
             } else if (slide.type === 'image') {
@@ -80,6 +83,7 @@ export const Slides: React.FC<SlidesProps> = (
                     link={ slide.content }
                     size={ slide.size }
                     animation={ slide.animation || animation || defaultSlide?.animation }
+                    effect={ slide.effect || defaultSlide?.effect }
                     key={ `i${ Math.floor(Math.random() * 10 ** 5) }` }
                 />
             } else if (slide.type === 'feedback') {

@@ -5,6 +5,7 @@ interface ImageSlideProps {
     link?: string,
     size?: string,
     animation?: string,
+    effect?: string
 }
 
 const ImageSlide: React.FC<ImageSlideProps> = (
