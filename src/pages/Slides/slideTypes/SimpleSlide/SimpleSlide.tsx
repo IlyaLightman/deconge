@@ -21,11 +21,15 @@ const SimpleSlide: React.FC<SimpleSlideProps> = (
         text, title,
         size, // small, medium, large
         color, highlight,
-        animation // none, fadein
+        animation, // none, fadein,
+        effect // none, parallax
     }
 ) => {
     return (
-        <SimpleSlideStyle animation={ animation }>
+        <SimpleSlideStyle
+            animation={ animation }
+            effect={ effect }
+        >
             { title ? <TitleStyle
                 size={ size }
                 color={ color }
