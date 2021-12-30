@@ -44,6 +44,9 @@ export const TextStyle = styled.p<TextProps>`
                           size === 'small' ? '20px' : '28px'
   };
   color: ${ ({ color }) => color || 'black' };
+  margin: 100px;
+  text-align: center;
+  line-height: 1.3;
   margin-top: 0;
   padding: 5px;
   background: ${ ({ highlight }) => highlight || null };
