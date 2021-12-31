@@ -119,7 +119,7 @@ const examplePageMessenger: React.FC = () => (<Messenger
         { text: 'Чё эмкаешь', msg: 5 }
     ] }
     collection={ [
-        { text: 'Приветливость в диалоге!' },
+        { text: 'Приветливость в диалоге!', title: 'title', img: 'http://top5-top10.ru/wp-content/uploads/2020/02/Крапчатая-роющая-лягушка.jpg' },
         { text: 'Ужасная неприветливость....' }
     ] }
 />)

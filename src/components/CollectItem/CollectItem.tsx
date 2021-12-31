@@ -29,7 +29,11 @@ export const CollectItem: React.FC<CollectItemProps> = (
     >
         { title ? <h3> { title } </h3> : null }
         { text? <p> { text } </p> : null }
-        { img }
+        { img ? <img
+            src={ img }
+            alt={ text || '' }
+            width='600px'
+        /> : null }
         <Button
             text={ buttonText || 'Go next' }
             background={ buttonStyle?.background || 'white' }

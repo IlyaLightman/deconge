@@ -26,4 +26,8 @@ export const CollectItemStyle = styled.div<CollectItemProps>`
   p {
     font-size: 24px;
   }
+  
+  img {
+    margin: 20px;
+  }
 `

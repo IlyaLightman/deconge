@@ -110,6 +110,14 @@ export const Messenger: React.FC<MessengerProps> = (
                     // @ts-ignore
                     collection[msgs[dialogue[dialogue.length - 1]].collect].text
                 }
+                img={
+                    // @ts-ignore
+                    collection[msgs[dialogue[dialogue.length - 1]].collect].img
+                }
+                title={
+                    // @ts-ignore
+                    collection[msgs[dialogue[dialogue.length - 1]].collect].title
+                }
                 onClick={ () => {
                     if (!collectedItems.includes(msgs[dialogue[dialogue.length - 1]].collect as number))
                         setCollectedItems(
